@@ -44,10 +44,29 @@
             color: rgb(107, 107, 107);
         }
 
+        .note::before {
+            content: " 📢 ";
+        }
+
         a {
             text-decoration: none;
             color: black;
         }
+
+        .back-link{
+            color: black;
+            text-decoration: none;
+
+            background-color: blue;
+            padding: 4px;
+            border-radius: 10px;
+        }
+
+        .back-link:hover {
+            color: rgb(255, 255, 255);
+            background-color: blue;
+        }
+        
     
     </style>
 </head>
@@ -117,7 +136,7 @@
 เพื่อให้ “ตัวใหญ่ขึ้น” → ต้องแก้ด้วย CSS เท่านั้น
         </p>
         </section>
-        <a href="index.html">&larr; Back to HTML Tutorial</a>
+        <a href="index.html" class="back-link"> &larr; Back to HTML Tutorial</a>
     </div>
 </body>
 </html>
