@@ -38,6 +38,7 @@
             border-radius: 15px;
             margin-bottom: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+            height: fit-content;
         }
 
         .card2 {
@@ -77,6 +78,8 @@
             background-color: rgba(150, 149, 149, 0.575);
             border-left: rgb(4, 238, 15) 5px solid; 
             padding: 10px;
+            white-space: pre-wrap;
+            word-wrap: break-word; 
         }
 
         code {
@@ -122,6 +125,44 @@
         .note::before {
             content: " 📢 ";
         }
+
+        .image-link img {
+            width: 260px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .image-link img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px white;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 25px;
+        }
+
+        .grid-3-col {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+            text-align: center;
+        }
+
+        /* Tablet */
+        @media (max-width: 992px){
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 576px){
+            .grid-3-col {
+                grid-template-columns: 1fr;
+            }
+        }
         
     </style>
 </head>
@@ -131,45 +172,46 @@
         <h1>Workshop: Various Links</h1>
         <p class="subtitle">เรียนรู้ลิงก์หลายรูปแบบ พร้อมตัวอย่างและแบบฝึกหัด</p>
         </header>
-        <!-- Card 1 -->
-         <div class="card1 ex-1">
-            <h2>1.External Links</h2>
-            <div class="card2">
-                <a href="" class="subtitle2">Visit Wikipedia</a>
-                <p><code>target="_blank"</code>เปิดลิงก์ในแท็บใหม่</p>
-            </div>
-            <div class="card2">
-                <a href=""class="subtitle2">Visit Google</a>
-                <p><code>taget="_self"</code>เปิดลิงก์ในหน้าเดิม</p>
-            </div>
-         </div>
 
-        <!-- Card 2 -->
-         <div class="card1 ex-2">
-            <h2>2.Internal Links & Anchor Links</h2>
-            <pre>&lt;a href="about.html"&gt;About Us&lt;/a&gt;
-&lt;a href="#jump"&gt;Jump to Section&lt;/a&gt;
-&lt;h3 id="jump"&gt;This is the jump target&lt;/h3&gt;
-</pre>
-            <a href="#jump">CLick to jump</a>
-            <h3>This is the jump target.</h3>
-         </div>
-
-         <!-- Card 3 -->
-        <div class="card1 ex-3">
-            <h2>3.Email Links</h2>
-            <pre>&lt;a href="mailto:student@example.com?subject=Hello"&gt;
-        Send an Email
-&lt;/a&gt;
+        <div class="card-grid">
+            <!-- Card 1 -->
+             <div class="card1 ex-1">
+                <h2>1.External Links</h2>
+                <div class="card2">
+                    <a href="https://th.wikipedia.org" target="_blank" class="subtitle2">Visit Wikipedia</a>
+                    <p><code>target="_blank"</code>เปิดลิงก์ในแท็บใหม่</p>
+                </div>
+                <div class="card2">
+                    <a href=""class="subtitle2" target="_self">Visit Google</a>
+                    <p><code>taget="_self"</code>เปิดลิงก์ในหน้าเดิม</p>
+                </div>
+             </div>
+            <!-- Card 2 -->
+             <div class="card1 ex-2">
+                <h2>2.Internal Links & Anchor Links</h2>
+                <pre>&lt;a href="about.html"&gt;About Us&lt;/a&gt;
+            &lt;a href="#jump"&gt;Jump to Section&lt;/a&gt;
+            &lt;h3 id="jump"&gt;This is the jump target&lt;/h3&gt;
             </pre>
-            <a href="mailto:student@example.com?subject=Hello">Send an Email</a>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="card1 ex-4">
-            <h2>4.Dowload Link</h2>
-            <pre>&lt;a href="files/sample.txt" download&gt;Download File&lt;/a&gt;</pre>
-            <a href="files/sample.txt" class="back-link">Dowload Text File</a>
+                <a href="#jump">CLick to jump</a>
+                <h3>This is the jump target.</h3>
+             </div>
+             <!-- Card 3 -->
+            <div class="card1 ex-3">
+                <h2>3.Email Links</h2>
+                <pre>&lt;a href="cgarcing.oil@gmail.com?subject=HelloWorld"&gt;
+            Send an Email
+            &lt;/a&gt;
+                </pre>
+                <a href="mailto:cgarcing.oil@gmail.com?subject=Hello World">Send an Email</a>
+            </div>
+            <!-- Card 4 -->
+            <div class="card1 ex-4">
+                <h2>4.Dowload Link</h2>
+                <pre>&lt;a href="files/sample.txt" download&gt;Download File&lt;/a&gt;</pre>
+                <a href="files/item.png" class="back-link">Dowload Text File</a>
+                <p class="note">ต้องมีไฟล์ในโฟลเดอร์ถึงดาวน์โหลดได้จริง</p>
+            </div>
         </div>
 
         <!-- Card 5 -->
@@ -181,7 +223,7 @@
             &lt;/a&gt
         </pre>
             <a href="" class="btn-visit">Visit Website</a>
-            <p>สร้างปุ่มด้วยแท็ก button</p>
+            <p>สร้างปุ่มด้วยแท็ก <code>button</code></p>
             <pre>            &lt;button onclick="document.location='index.html'"&gt;HTML Tutorial&lt;/button&gt;
             - มักใช้เมื่อลิงก์ไป หน้าในเว็บเดียวกัน
             - ผูกกับ DOM (document) โดยตรง
@@ -191,8 +233,35 @@
             - เหมาะทั้งลิงก์ ภายในและภายนอกเว็บ
             - ผูกกับ window โดยตรง
             </pre>
-            <button onclick="document.location='index.html'">HTML Tutorial</button>
-            <button onclick="location.href='https://www.example.com'">Visit Website</button>
+            <div class="grid-3-col">
+                
+                    <div class="">
+                        <p>ปุ่ม<code>document.location</code></p>
+                        <button onclick="document.location='index.html'">HTML Tutorial</button>
+                    </div>
+                    <div class="">
+                        <p>ปุ่ม<code>location.href</code></p>
+                        <button onclick="location.href='https://www.example.com'">Visit Website</button>
+                    </div>
+                    <div class="">
+                        <p>ตัวอย่างปุ่มจาก https://cssnippets.shrfaii.dev</p>
+                        <button onclick="location.href=''">SUBSCRIBE</button>
+                    </div>
+                    <div class="">
+                        <p>เพิ่มขอบทอง</p>
+                        <button onclick="location.href=''">SUBSCRIBE</button>
+                    </div>
+                    <div class="">
+                        <p>เพิ่มแอนิเมชั่นเมื่อชี้ปุ่ม</p>
+                        <button onclick="location.href=''">SUBSCRIBE</button>
+                    </div>
+                    <div class="">
+                        <p>ปุ่มสีดำ ขอบทอง แสงวิ่ง</p>
+                        <button onclick="location.href=''">SUBSCRIBE</button>
+                    </div>
+                
+            </div>
+
         </div>
 
         <!-- card 6 -->
@@ -203,7 +272,7 @@
             &lt;img src="images/sample.jpg" width="250"&gt;
             &lt;/a&gt;
         </pre>
-            <a href="https://youtube.com"><img src="https://www.freeiconspng.com/uploads/youtube-logo-png-20.png" width="250"></a>
+            <a class="image-link" href="https://youtube.com" target="_blank"><img src="https://www.freeiconspng.com/uploads/youtube-logo-png-20.png" width="250"></a>
             <p class="note">
             หากต้องการใช้รูปของตนเอง ให้เก็บรูปไว้ในโฟลเดอร์ เช่น image/photo.jpg
             </p>
