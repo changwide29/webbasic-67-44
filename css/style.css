@@ -1,0 +1,70 @@
+* {
+  font-family: "Prompt", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+}
+.glow-card {
+  background: #111;
+  color: #ffffff;
+  border-radius: 16px;
+  box-shadow:
+    0 0 15px rgba(17, 0, 255, 0.993),
+    0 0 30px rgba(49, 5, 207, 0.2);
+  transition: all 0.4s ease;
+}
+
+.glow-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 25px rgb(156, 6, 202),
+    0 0 50px rgba(145, 2, 189, 0.6);
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+.card-text {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.card-title {
+  font-size: 30px;
+}
+
+.profile-img {
+  border-radius: 5px;
+  max-width: 300px;
+  padding-left: 90px;
+  object-fit: cover;
+}
+
+.title-center {
+  text-align: center;
+  font-weight: 500;
+  font-size: 50px;
+}
+
+footer {
+  background: rgba(94, 0, 216, 0.9);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-footer {
+  text-decoration: none;
+  color: white;
+}
