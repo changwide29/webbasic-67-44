@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAR LIST</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Kanit", sans-serif;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .wrapper {
+            width: 1000px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(231, 179, 9);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* header */
+        .site-header {
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo {
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+            width: 45px;
+            height: 45px;
+            background: #00ff37;
+            color: #fff;
+        }
+
+        .menu {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            list-style-type: none;
+        }
+
+        .menu li a {
+            color: rgb(14, 14, 14);
+            font-size: 0.9rem;
+
+            display: block;
+            padding: 10px 15px;
+        }
+
+        .menu li a:hover,
+        .menu li a.active {
+            border-radius: 5px;
+            background-color: rgb(0, 255, 13);
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+            color: aliceblue;
+        }
+
+        .signin {
+            background: #33ff00;
+            color: #fff;
+            padding: 6px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+          .signin:hover {
+            background: #02ffc8;
+            color: #ffffff;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .signup {
+            margin-left: 5px;
+            background: #33ff00;
+            color: #fff;
+            padding: 6px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+          .signup:hover {
+            background: #02ffc8;
+            color: #ffffff;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        /* ---------------- Cards ---------------- */
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: #08fd00;
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 6px;
+        }
+
+        .card h4 {
+            margin: 15px 0 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            background: #ffee00;
+            padding: 6px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #ffffff;
+            color: #1eff00;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        /* ---------------- Footer ---------------- */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 13px;
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="wrapper">
+            <div class="header-inner">
+                <div class="logo">CG</div>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Event & News</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+        <a href="#" class="signin">Sign in</a>
+        <a href="#" class="signup">Sign up</a>
+    </header>
+
+    <!-- cards -->
+    <div class="container">
+
+        <div class="card">
+            <img src="https://mpics.mgronline.com/pics/Images/565000001579901.JPEG"
+                alt="">
+            <h4>Parrot Name</h4>
+            <p>
+            Lorem ipsum dolor sit amet consectetur. Morbi sapien sit ultrices pellentesque curabitur fringilla nuncLorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            </p>
+            <a href="#" class="btn">Button</a>
+        </div>
+
+        <div class="card">
+            <img src="https://img.icarcdn.com/one2car-news/body/000000876905_e080ab6d_7029_403b_8878_9811e0599d9c.jpeg" alt="">
+            <h4>Flamingo Name</h4>
+            <p>
+            Lorem ipsum dolor sit amet consectetur. Morbi sapien sit ultrices pellentesque curabitur fringilla nuncLorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            </p>
+            <a href="#" class="btn">Button</a>
+        </div>
+
+        <div class="card">
+            <img src="https://mpics.mgronline.com/pics/Images/563000005708401.JPEG" alt="">
+            <h4>Flamingo Name</h4>
+            <p>
+            Lorem ipsum dolor sit amet consectetur. Morbi sapien sit ultrices pellentesque curabitur fringilla nuncLorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            </p>
+            <a href="#" class="btn">Button</a>
+        </div>
+
+        <div class="card">
+            <img src="https://mainstand.co.th/storage/news/7925_Car.jpg"
+                alt="">
+            <h4>Parrot Name</h4>
+            <p>
+            Lorem ipsum dolor sit amet consectetur. Morbi sapien sit ultrices pellentesque curabitur fringilla nuncLorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            </p>
+            <a href="#" class="btn">Button</a>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        Copyright by Thanapol <br>
+        Information Technology, NPRU
+    </footer>
+</body>
+
+</html>
