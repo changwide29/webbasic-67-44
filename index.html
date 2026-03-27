@@ -1,385 +1,309 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Tutorial</title>
+    <title>My Projects Hub</title>
+    <!-- Bootstrap 5.2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        /* ลูกเล่น Hover Card ให้ดูทันสมัย */
+        .project-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+            background-color: #e9ecef;
+        }
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .footer {
+            margin-top: auto;
+            background-color: #212529;
+            color: #fff;
+        }
+    </style>
 </head>
-<style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 20px 100px 0 100px;
-        line-height: 1.5
-    }
-    h1 {
-        color: #ff0000e1;
-    }
-    h2 {
-        color: #f10909;
-    }
-    ul {
-        list-style-type: circle;
-    }
-    a {
-        text-decoration: none;
-        color: blue;
-    }
-    a:hover {
-        text-decoration: underline;
-        color: rgb(253, 9, 9);
-    }
-    pre {
-        font-size: 16px;
-        padding: 10px;
-    }
-    footer{
-        background-color: #5eff00;
-        text-align: center;
-        padding: 10px;
-        margin: auto;
-    }
-</style>
 <body>
-    <!-- Main menu -->
-<h1 id="tutorial">HTML Tutorial</h1>
-<p>Welcome to the HTML tutorial. Click on the topics below to start learning:</p>
-<h2>Topics</h2>
-<ul>
-    <li><a href="#tutorial">Introduction to HTML</a></li>
-    <li><a href="#intro">Introduction to HTML</a></li>
-    <li><a href="#struture">HTML Document Structure</a></li>
-    <li><a href="W03_01_heading.html">Heading</a></li>
-    <li><a href="#paragraph">Paragraph</a></li>
-    <li><a href="W04_01_formatting.html">Text Formatting</a></li>
-    <li><a href="creating">Creating Links</a></li>
-    <li><a href="#lists">Lists (Ordered and Unordered)</a></li>
-    <li><a href="#adding">Adding Images</a></li>
-    <li><a href="#tables">Creating Tables</a></li>
-    <li><a href="#forms">HTML Forms</a></li>
-    <li><a href="#embedding">Embedding Multimedia (Audio & Video)</a></li>
-    <li><a href="#semantic">Semantic HTML</a></li>
-</ul>
-<hr>
 
-<!-- Section 1 -->
-<h2 id="intro">Introduction to HTML</h2>
-<pre style="background-color: rgb(241, 241, 241);
-        border-left: #5eff00 5px solid;">
-    - HTML stands for Hyper Text Markup Language
-    - HTML is the standard markup language for creating Web pages
-    - HTML describes the structure of a Web page
-    - HTML consists of a series of elements
-    - HTML elements tell the browser how to display the content
-    - HTML elements are represented by tags
-    - HTML tags label pieces of content such as "heading", "paragraph", "table", and so on
-    - Browsers do not display the HTML tags, but use them to render the content of the page
-    - HTML can embed programs written in a scripting language such as JavaScript, which affects the behavior and content of web pages
-    - HTML is not a programming language, but a markup language</pre>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">🚀 ChangHub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#works">ผลงาน</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="contactAlert()">ติดต่อ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<a href="#">Top</a>
-<hr>
+    <!-- Header -->
+    <div class="container mt-5 text-center">
+        <h1 class="fw-bold">รวมผลงานและโปรเจกต์</h1>
+        <p class="text-muted">แหล่งรวบรวมระบบและเว็บแอปพลิเคชันที่พัฒนาขึ้น</p>
+    </div>
 
-<!-- Section 3 -->
-<h2 id="struture">HTML Document Structure</h2>
-<p>An HTML document has the following basic structure...</p>
-<pre>    คำอธิบาย:
-    &lt;!DOCTYPE html&gt;: ระบุว่าเป็นเอกสาร HTML5
-    &lt;html&gt;: เป็นรากของเอกสาร HTML ทั้งหมด
-    &lt;head&gt;: ส่วนที่ใช้เก็บข้อมูลเมตา เช่น &lt;title&gt; ชื่อหน้าเว็บ
-    &lt;body&gt;: ส่วนที่จะแสดงผลบนหน้าเว็บ
-    องค์ประกอบส าคัญของ HTML
-    แท็ก (Tags):
-     - แท็กเริ่มต้น (Opening Tag): เช่น &lt;h1&gt;
-     - แท็กปิด (Closing Tag): เช่น &lt;/h1&gt;
-    แอตทริบิวต์ (Attributes): คุณสมบัติของแท็ก
-     - ใช้เพื่อกำหนดคุณสมบัติเพิ่มเติม เช่น href, src, width, height
+    <!-- Works Section -->
+    <div class="container mt-4 mb-5" id="works">
+        <div class="row g-4" id="project-container">
+            <!-- ข้อมูลโปรเจกต์จะถูกสร้างด้วย JavaScript ด้านล่าง -->
+        </div>
+    </div>
 
-    ตัวอย่าง: &lt;h1&gt;Hello, World!&lt;/h1&gt;
-        &lt;img src="image.jpg" alt="A description of the image"&gt;</pre>
-<a href="#">Top</a>
-<hr>
+    <!-- Modal ทันสมัย (Dynamic Modal) -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0" style="border-radius: 20px; overflow: hidden;">
+                <div class="modal-header bg-primary text-white border-0">
+                    <h5 class="modal-title fw-bold" id="modalTitle">ชื่อโปรเจกต์</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <img src="" id="modalImg" class="img-fluid rounded shadow-sm" alt="Project Image" style="width: 100%; height: 250px; object-fit: cover;">
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold text-primary">รายละเอียดระบบ</h6>
+                            <p id="modalDesc" class="text-muted"></p>
+                            <hr>
+                            <h6 class="fw-bold text-success">เทคโนโลยีที่ใช้</h6>
+                            <p id="modalTech" class="badge bg-secondary fs-6">HTML, CSS, JS</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 bg-light">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">ปิดหน้าต่าง</button>
+                    <button type="button" class="btn btn-primary rounded-pill px-4" onclick="visitLink()">เข้าชมเว็บไซต์จริง</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- Section 4 -->
-<h2 id="head">Heading</h2>
-<p><a href="W03_01_heading.html">workshop</a></p>
-<p>HTML headings are defined with the &lt;h1&gt; to &lt;h6&gt; tags...</p>
-<pre>
-    - &lt;h1&gt;: Heading 1
-    - &lt;h2&gt;: Heading 2
-    - &lt;h3&gt;: Heading 3
-    - &lt;h4&gt;: Heading 4
-    - &lt;h5&gt;: Heading 5
-    - &lt;h6&gt;: Heading 6
-</pre>
-<a href="#">Top</a>
-<hr>
+    <!-- Footer -->
+    <footer class="footer py-4 text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 ChangHub. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-<!-- Section 5 -->
-<h2 id="paragraph">Paragraph</h2>
-<p style="color: aqua;">workshop</p>
-<p>HTML paragraphs are defined with the &lt;p&gt; tag...</p>
-<pre>
-    - &lt;p&gt;: Paragraph
-</pre>
-<a href="#">Top</a>
-<hr>
+    <!-- Bootstrap 5.2 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Section 6 -->
-<h2 id="formatting">Text Formatting</h2>
-<p style="color: aqua;"><a href="W04_01_formatting.html"></a>workshop</p>
-<p>HTML provides various elements to format text...</p>
-<pre>
-    - &lt;h1&gt; to &lt;h6&gt;: Headings
-    - &lt;p&gt;: Paragraph
-    - &lt;pre&gt;: Preformatted text
-    - &lt;b&gt;: Bold text
-    - &lt;strong&gt;: Important text
-    - &lt;i&gt;: Italic text
-    - &lt;em&gt;: Emphasized text
-    - &lt;u&gt;: Underline text
-    - &lt;ins&gt;: Inserted text
-    - &lt;del&gt;: Deleted text
-    - &lt;s&gt;: Strikethrough text
-    - &lt;strike&gt;: Strikethrough text
-    - &lt;small&gt;: Smaller text
-    - &lt;big&gt;: Big text
-    - &lt;mark&gt;: Marked/highlighted text
-    - &lt;sub&gt;: Subscript text
-    - &lt;sup&gt;: Superscript text
-    - &lt;blockquote&gt;: Block quotation
-    - &lt;q&gt;: Inline quotation
-    - &lt;code&gt;: Code snippet
+    <!-- Custom JavaScript -->
+    <script>
+        // ข้อมูลตัวอย่าง 10 โปรเจกต์ (ปรับแก้ข้อความได้ตามต้องการ)
+        const projects = [
+            { 
+            id: 1, 
+            title: "W07_Image", 
+            desc: "✅ งานที่ ต้องได้รับการตรวจใหม่", 
+            tech: "HTML, CSS, JS", 
+            img: "https://pro-webdesigns.com/wp-content/uploads/2024/07/Web-Design-PNG-Image-Transparent.png",
+            url: "W07_AddingImg.html"
+        },
+            { 
+            id: 2, 
+            title: "W07_Image", 
+            desc: "งานที่ ต้องได้รับการตรวจใหม่", 
+            tech: "HTML, CSS, JS", 
+            img: "https://pro-webdesigns.com/wp-content/uploads/2024/07/Web-Design-PNG-Image-Transparent.png",
+            url: "W07_AddingImg.html"
+        },            { 
+            id: 3, 
+            title: "W07_Image", 
+            desc: "งานที่ ต้องได้รับการตรวจใหม่", 
+            tech: "HTML, CSS, JS", 
+            img: "https://pro-webdesigns.com/wp-content/uploads/2024/07/Web-Design-PNG-Image-Transparent.png",
+            url: "W07_AddingImg.html"
+        },
+            { 
+            id: 4, 
+            title: "W07_Image", 
+            desc: "งานที่ ต้องได้รับการตรวจใหม่", 
+            tech: "HTML, CSS, JS", 
+            img: "https://pro-webdesigns.com/wp-content/uploads/2024/07/Web-Design-PNG-Image-Transparent.png",
+            url: "W07_AddingImg.html"
+        },
+            { 
+            id: 5, 
+            title: "W07_Image", 
+            desc: "งานที่ ต้องได้รับการตรวจใหม่", 
+            tech: "HTML, CSS, JS", 
+            img: "https://pro-webdesigns.com/wp-content/uploads/2024/07/Web-Design-PNG-Image-Transparent.png",
+            url: "W07_AddingImg.html"
+        },            { 
+            id: 6, 
+            title: "W07_Image", 
+            desc: "งานที่ ต้องได้รับการตรวจใหม่", 
+            tech: "HTML, CSS, JS", 
+            img: "https://pro-webdesigns.com/wp-content/uploads/2024/07/Web-Design-PNG-Image-Transparent.png",
+            url: "W07_AddingImg.html"
+        },
+            { 
+            id: 7, 
+            title: "W07_Image", 
+            desc: "งานที่ ต้องได้รับการตรวจใหม่", 
+            tech: "HTML, CSS, JS", 
+            img: "https://pro-webdesigns.com/wp-content/uploads/2024/07/Web-Design-PNG-Image-Transparent.png",
+            url: "W07_AddingImg.html"
+        },   
+            { 
+            id: 8, 
+            title: "W07_Image", 
+            desc: "งานที่ ต้องได้รับการตรวจใหม่", 
+            tech: "HTML, CSS, JS", 
+            img: "https://pro-webdesigns.com/wp-content/uploads/2024/07/Web-Design-PNG-Image-Transparent.png",
+            url: "W07_AddingImg.html"
+        },            
+            { 
+            id: 9, 
+            title: "W07_Image", 
+            desc: "งานที่ ต้องได้รับการตรวจใหม่", 
+            tech: "HTML, CSS, JS", 
+            img: "https://pro-webdesigns.com/wp-content/uploads/2024/07/Web-Design-PNG-Image-Transparent.png",
+            url: "W07_AddingImg.html"
+        },
+            { 
+            id: 10, 
+            title: "W07_Image", 
+            desc: "งานที่ ต้องได้รับการตรวจใหม่", 
+            tech: "HTML, CSS, JS", 
+            img: "https://pro-webdesigns.com/wp-content/uploads/2024/07/Web-Design-PNG-Image-Transparent.png",
+            url: "W07_AddingImg.html"
+        },
+           { 
+            id: 11, 
+            title: "W07_Image", 
+            desc: "งานที่ ต้องได้รับการตรวจใหม่", 
+            tech: "HTML, CSS, JS", 
+            img: "https://pro-webdesigns.com/wp-content/uploads/2024/07/Web-Design-PNG-Image-Transparent.png",
+            url: "W07_AddingImg.html"
+        },
+            { 
+            id: 12, 
+            title: "W07_Image", 
+            desc: "งานที่ ต้องได้รับการตรวจใหม่", 
+            tech: "HTML, CSS, JS", 
+            img: "https://pro-webdesigns.com/wp-content/uploads/2024/07/Web-Design-PNG-Image-Transparent.png",
+            url: "W07_AddingImg.html"
+        },   
+        ];
 
-</pre>
-<a href="#">Top</a>
-<hr>
+        // วนลูปสร้างการ์ดผลงาน 10 อัน
+        const container = document.getElementById('project-container');
+        projects.forEach((proj, index) => {
+            const cardHTML = `
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 ${index >= 8 ? 'col-lg-6 col-xl-3' : ''}">
+                    <div class="card project-card h-100">
+                        <img src="${proj.img}" class="card-img-top" alt="${proj.title}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">${proj.title}</h5>
+                            <p class="card-text text-muted small flex-grow-1">${proj.desc}</p>
+                            <div class="d-flex justify-content-between mt-3">
+                                <button class="btn btn-outline-primary btn-sm rounded-pill px-3" onclick="openModal(${proj.id})">
+                                    ดูรายละเอียด
+                                </button>
+                                <button class="btn btn-primary btn-sm rounded-pill px-3" 
+        onclick="confirmLink('${proj.title}', '${proj.url}')">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right mb-1" viewBox="0 0 16 16">
+                                      <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                                      <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += cardHTML;
+        });
 
-<!-- Section 7 -->
-<h2 id="creating">Creating Links</h2>
-<p style="color: aqua;">workshop</p>
-<p>HTML links are defined with the &lt;a&gt; tag...</p>
-<pre>
-    - &lt;a href="url" target=""&gt;Link text&lt;/a&gt;
-    - The href attribute specifies the URL of the page the link goes to
-    - The target attribute specifies where to open the linked document
-        - _self: Open the linked document in the same window/tab
-        - _blank: Open the linked document in a new window/tab
-        - _parent: Open the linked document in the parent frame
-        - _top: Open the linked document in the full body of the window
-    - The link text is the visible part of the link
-    - Anchor links:
-        - Use the href attribute with the # symbol to link to a specific part of the page
-        - Use the id attribute to define the section to link to
-        - Example: &lt;a href="#section"&gt;Go to Section&lt;/a&gt;
-        - Example: &lt;h3 id="section"&gt;This is the Section&lt;/h3&gt;
-    - Email links:
-        - Use the mailto: prefix to create an email link
-        - Example: &lt;a href="mailto:support@example.com">email us&lt;/a&gt;
-
-    - Download links:
-        - Use the download attribute to create a download link
-        - Example: &lt;a href="file.txt" download&gt;Download Text File&lt;/a&gt;
-
-</pre>
-<a href="#">Top</a>
-<hr>
-
-<!-- Section 8 -->
-<h2 id="lists">Lists (Ordered and Unordered)</h2>
-<p style="color: aqua;">workshop</p>
-<p>HTML lists are defined with the &lt;ul&gt;, &lt;ol&gt;, and &lt;li&gt; tags...</p>
-<pre>
-    - &lt;ul&gt;: Unordered list
-    - &lt;ol&gt;: Ordered list
-    - &lt;li&gt;: List item
-    - Unordered list:
-        - Use the &lt;ul&gt; tag to create an unordered list
-        - Use the &lt;li&gt; tag to create each list item
-        - Example:
-            &lt;ul&gt;
-                &lt;li&gt;Coffee&lt;/li&gt;
-                &lt;li&gt;Tea&lt;/li&gt;
-                &lt;li&gt;Milk&lt;/li&gt;
-            &lt;/ul&gt;
-
-    - Ordered list:
-        - Use the &lt;ol&gt; tag to create an ordered list
-        - Use the &lt;li&gt; tag to create each list item
-        - Example:
-            &lt;ol&gt;
-                &lt;li&gt;Coffee&lt;/li&gt;
-                &lt;li&gt;Tea&lt;/li&gt;
-                &lt;li&gt;Milk&lt;/li&gt;
-            &lt;/ol&gt;
-    - List style types:
-        - Use the list-style-type property to define the style of the list
-        - Example: &lt;ul style="list-style-type: disc;"&gt;
-        - Example: &lt;ul style="list-style-type: circle;"&gt;
-        - Example: &lt;ul style="list-style-type: square;"&gt;
-        - Example: &lt;ul style="list-style-type: none;"&gt;
-        - Example: &lt;ol type="1"&gt;
-        - Example: &lt;ol type="A"&gt;
-        - Example: &lt;ol type="a"&gt;
-        - Example: &lt;ol type="I"&gt;
-        - Example: &lt;ol type="i"&gt;
-        - Example: &lt;ol type="A" start="3"&gt;
-        - Example: &lt;ol type="1" start="3"&gt;
-        - Example: &lt;ol style="list-style-type: decimal;"&gt;
-        - Example: &lt;ol style="list-style-type: upper-alpha;"&gt;
-        - Example: &lt;ol style="list-style-type: lower-alpha;"&gt;
-        - Example: &lt;ol style="list-style-type: upper-roman;"&gt;
-        - Example: &lt;ol style="list-style-type: lower-roman;"&gt;
-</pre>
-<a href="#">Top</a>
-<hr>
-
-<!-- Section 9 -->
-<h2 id="adding">Adding Images</h2>
-<p style="color: aqua;">workshop</p>
-<p>HTML images are defined with the &lt;img&gt; tag...</p>
-<pre>
-    - &lt;img src="url" alt="description"&gt;
-    - The src attribute specifies the URL of the image
-    - The alt attribute provides a description of the image
-    - The width and height attributes provide the size of the image
-        - Example: &lt;img src="image.jpg" alt="description of image"&gt;
-        - Example: &lt;img src="image.jpg" alt="description of image" width="300" height="200"&gt;
-    - Image alignment:
-        - Use the align attribute to specify the alignment of an image
-        - Example: &lt;img src="image.jpg" alt="description" align="left"&gt;
-        - Example: &lt;img src="image.jpg" alt="description" align="right"&gt;
-
-    - Image border:
-        - Use the border attribute to add a border around an image
-        - Example: &lt;img src="image.jpg" alt="description" border="1"&gt;
-
-    - Image link:
-        - Use the &lt;a&gt; tag to create a link around an image
-        - Example: &lt;a href="url"&gt;&lt;img src="image.jpg" alt="description"&gt;&lt;/a&gt;
-    - Image gallery:
-        - Use the &lt;div&gt; tag to create an image gallery
-        - Use the &lt;img&gt; tag to display each image
-        - Example:
-            &lt;div class="gallery"&gt;
-                &lt;img src="image1.jpg" alt="Image 1"&gt;
-                &lt;img src="image2.jpg" alt="Image 2"&gt;
-                &lt;img src="image3.jpg" alt="Image 3"&gt;
-            &lt;/div&gt;
-
-    - flex box:
-        - Use the display: flex; property to create a flex container
-        - Use the gap property to create space between flex items
-        - Example:
-            .gallery {
-                display: flex;
-                gap: 10px;
-        }
-            .gallery img {
-                width: 150px;
-                height: 150px;
-                object-fit: cover;
+        // ฟังก์ชันจัดการ Modal ทันสมัย
+        const projectModal = new bootstrap.Modal(document.getElementById('projectModal'));
+        function openModal(id) {
+            const proj = projects.find(p => p.id === id);
+            document.getElementById('modalTitle').innerText = proj.title;
+            document.getElementById('modalImg').src = proj.img;
+            document.getElementById('modalDesc').innerText = proj.desc;
+            document.getElementById('modalTech').innerText = proj.tech;
+            projectModal.show();
         }
 
-</pre>
-<a href="#">Top</a>
-<hr>
+       // แก้ไขให้รับพารามิเตอร์ url เพิ่ม
+function confirmLink(title, url) {
+    Swal.fire({
+        title: 'ออกจากหน้านี้?',
+        text: `คุณต้องการเปิดดูโปรเจกต์ "${title}" ใช่หรือไม่?`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'ใช่, เปิดเลย!',
+        cancelButtonText: 'ยกเลิก',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // ถ้ามี URL ให้กระโดดไปที่หน้านั้นทันที
+            if (url && url !== "undefined") {
+                window.location.href = url; 
+            } else {
+                Swal.fire('ขออภัย', 'ไม่พบลิงก์สำหรับโปรเจกต์นี้', 'error');
+            }
+        }
+    });
+}
 
-<!-- Section 11 -->
-<h2 id="tables">Creating Tables</h2>
-<p style="color: aqua;">workshop 1 workshop 2</p>
-<p>HTML tables are defined with the &lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, and &lt;td&gt; tags...</p>
-<pre>
-    - &lt;table&gt;: Table
-    - &lt;tr&gt;: Table row
-    - &lt;th&gt;: Table header
-    - &lt;td&gt;: Table data/cell
-
-</pre>
-<a href="#">Top</a>
-<hr>
-
-<!-- Section 12 -->
-<h2 id="forms">HTML Forms</h2>
-<p style="color: aqua;">workshop 1 workshop 2</p>
-<p>HTML forms are defined with the &lt;form&gt; tag...</p>
-<pre>
-    หัวข้อเกี่ยวกับฟอร์ม
-
-    1. โครงสร้างพื้นฐานของฟอร์ม
-
-    - &lt;form>: ใชเป็นตัวครอบข้อมูลในฟอรม์
-    - action และ method (GET/POST): การกำหนดปลายทางและวิธีส่งข้อมูลง ข้อมูล
-
-    2. ชนิดของอินพุต (Input Types)
-
-    - &lt;input>: ชนิดต่างๆ เช่น text, password, email, number,
-                            radio, checkbox, date, file
-    - &lt;textarea>: ชอ่ งขอ้ความขนาดใหญ่
-    - &lt;select> และ &lt;option>: เมนูแบบเลื่อนลง
-
-    - &lt;datalist>: รายการตัวเลือกที่กำหนดไว้ล่วงหน้า
-    - &lt;optgroup>: กลุ่มตัวเลือก
-
-    - &lt;fieldset> และ &lt;legend>: กลุ่มข้อมูลที่เกี่ยวข้อง
-
-    3. ปุ่มในฟอร์ม
-
-    - &lt;button>: ปุ่มทั่วไป
-    - &lt;input type="submit"> และ &lt;input type="reset">: ป่มส่งและล้างข้อมูล
-    - &lt;input type="button">: ปุ่มทั่วไป
-    - &lt;input type="image">: ปุ่มรูปภาพ
-    - &lt;input type="file">: ปุ่มอัพโหลดไฟล์
-
-    4. การจัดการป้ายกำกับ (Labels)
-
-    - &lt;label>: เพอื่ เชอื่ มกับ &lt;input> (ช่วยเพิ่มการเข้าถึง)
-    - for: ระบุ id ของอินพุตที่เกี่ยวข้อง
-
-    5. การตรวจสอบข้อมูล (Validation)
-
-    - คุณสมบัติเช่น required, min, max, pattern
-    - การใช ้JavaScript เพื่อทำการตรวจสอบ
-
-    6. ฟอร์มแบบสมัยใหม่ (HTML5)
-
-    - placeholder: ตัวอย่างข้อความในช่องอินพุด
-    - autofocus: ให้ฟอร์มเริ่มต้นโฟกัส
-
-    7. การส่งฟอร์ม (Form Submission)
-
-    - การส่งข้อมูลไปยังเซิร์ฟเวอร์
-    - การใช ้JavaScript (เช่น onsubmit)
-</pre>
-<a href="#">Top</a>
-<hr>
-
-<!-- Section 13 -->
-<h2 id="semantic">Semantic HTML</h2>
-<p>Semantic HTML elements clearly define the content of a web page...</p>
-<pre>
-    - &lt;header&gt;: Defines a header for a document or section
-    - &lt;nav&gt;: Defines navigation links
-    - &lt;section&gt;: Defines a section in a document
-    - &lt;article&gt;: Defines an article
-    - &lt;aside&gt;: Defines content aside from the page content
-    - &lt;footer&gt;: Defines a footer for a document or section
-</pre>
-<a href="#">Top</a>
-<hr>
-
-<!-- Section 13 -->
-<h2>My workshop</h2>
-    <ul>
-        <li><a href="https://www.w3schools.com/">workshop 01 : rabbit</a></li>
-        <li><a href="https://www.w3schools.com/">workshop 02 : Login</a></li>
-    </ul>
-<a href="#">Top</a>
-<hr>
-<a href="">Learn more about HTML</a>
-
-<!-- Section 14 -->
- <footer>
-    <p>&copy; 2024 HTML Tutorial by Thanapol Noiprasan</p>
- </footer>
+// สำหรับใน Modal ให้หาโปรเจกต์จาก ID แล้วดึง URL มาใช้
+function visitLink() {
+    const title = document.getElementById('modalTitle').innerText;
+    // หาข้อมูลโปรเจกต์ที่มีชื่อตรงกับใน Modal
+    const proj = projects.find(p => p.title === title);
+    
+    projectModal.hide();
+    
+    if (proj && proj.url) {
+        window.location.href = proj.url;
+    } else {
+        Swal.fire('ผิดพลาด', 'ไม่พบที่อยู่เว็บไซต์', 'error');
+    }
+}
+        // ฟังก์ชัน SweetAlert2 สำหรับ Navbar ติดต่อ
+        function contactAlert() {
+            Swal.fire({
+                title: 'ช่องทางการติดต่อ',
+                html: 'อีเมล: example@email.com <br> โทร: 080-123-4567',
+                icon: 'info',
+                confirmButtonText: 'ปิด',
+                confirmButtonColor: '#0d6efd'
+            });
+        }
+    </script>
 </body>
 </html>
